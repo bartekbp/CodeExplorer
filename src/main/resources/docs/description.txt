@@ -1,0 +1,21 @@
+Execute <b>Analyze</b> menu command and see results on opened CodeExplorer diagram:
+- <b>Method structure</b>: selected method and method calls from it within class
+- <b>Method and calls in...</b>: methods and calls between them in class, package, module or project
+- <b>Method call chains to this...</b>: <b>all</b> method call chains to this method (inside its class, package, module or project)
+- <b>Method call chains to this from...</b>: <b>all</b> method call chains to this method from selected class, package or module
+
+The diagram contains method nodes and edges for calls or usages between methods.
+You can <b>double click</b> on method nodes to add calls from the method or its usages to the diagram 
+depending on value selected in the "Show on doubleclick" combobox.
+Also you can add more nodes to the opened diagram executing actions from the <b>node context menu</b>.
+
+<b>Hints</b>:
+- Move mouse over a method node to see method signature and body in the <b>node tooltip</b>
+- To see method source: choose "Jump to source" in the node context menu or select a node and press F4
+- There are several Code explorer settings (in graph toolbar): graph orientation, autoscroll to method source on node selection, 
+ show class names as camel words, show method body in tooltip
+ 
+<b>Installation:</b> 
+Open Settings > Plugins
+Find the CodeExplorer in the available plugins list, right click on it and choose install
+<b>Note</b>: the plugin needs <b>Idea 8</b>, because it uses Graph API. <b>Idea 8.0</b> or higher is recommended.

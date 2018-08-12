@@ -1,0 +1,146 @@
+<html>
+<head>
+	<title>CodeExplorer FAQ</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="description" content="CodeExplorer FAQ" />
+	<meta name="keywords" content="CodeExplorer,IntelliJ,Idea,plugin,Java,method,analysis,find,diagram,call,chain,node,usage,structure,menu,click"/>
+	<meta name="author" content="Alexei Orishchenko" />
+</head>
+
+<style type="text/css">
+h1 { font-size: x-large; }    
+div.q { margin-top: 2em; }
+div ul { margin-top: 0; }    
+</style>
+
+<body>
+<h1>CodeExplorer frequently asked questions</h1>
+
+<ul>
+    <li><a href="#what">What does this plugin do?</a></li>
+    <li><a href="#help">How can the plugin help me with development?</a></li>
+    <li><a href="#how_work">How to work with the plugin?</a></li>
+    <li><a href="#add_nodes">How to add more nodes to the opened diagram?</a></li>
+    <li><a href="#analysis">What analysis does the plugin provide?</a></li>
+    <li><a href="#method_analysis">How to perform the method analysis?</a></li>
+    <li><a href="#unit_analysis">How to perform the unit analysis?</a></li>
+	<li><a href="#multitab">What about multiple tabs support?</a></li>
+    <li><a href="#click">What nodes are added when double-click on a diagram node?</a></li>
+	<li><a href="#method_icon">What does the method node icon indicate?</a>
+    <li><a href="#filter">Can I filter some method calls during method analysis?</a></li>
+    <li><a href="#demo">Are there Flash movies that show how to use the plugin?</a></li>
+    <li><a href="#source">How to jump to source of a method shown on diagram?</a></li>
+    <li><a href="#file">Can I store analysis results to file and load from it later?</a></li>
+    <li><a href="#advice">Any advice?</a></li>
+    <li><a href="#download">Where to download the plugin?</a></li>
+    <li><a href="#idea_version">Can I use the plugin with Idea 6 or 7?</a></li>
+    <li><a href="#install">How to install the plugin?</a></li>
+</ul>
+
+<div class="q">Q. <a name="what">What does this plugin do?</a></div>
+<div>A. The plugin analyses Java code (finds all method call chains to the method, or from it within class, and other) and 
+shows results on diagram:<br> 
+the nodes represent methods, the edges are calls or usages between methods.
+</div>
+
+<div class="q">Q. <a name="help">How can the plugin help me with development?</a></div>
+<div>A. Understanding method call chains within a class (package, module or project) helps to refactor your Java code, 
+remove duplicated and dead code, reuse existing code.<br>
+If you know all call chains to some method then you will be able to test all its usages from UI, refactor it safely
+and find out under which conditions method is called (thread, parameters).
+</div>
+
+<div class="q">Q. <a name="how_work">How to work with the plugin?</a></div>
+<div>A. Execute plugin commands from <b>Analyze</b> menu, and plugin will show analysis results on diagram.<br>
+You can add more nodes to the opened diagram by <b>double-clicking</b> on diagram nodes or
+executing commands from the context menu for a diagram node.
+</div>
+
+<div class="q">Q. <a name="add_nodes">How to add more nodes to the opened diagram?</a></div>
+<div>A. <b>Double-click</b> on diagram node to show method call from it or its usages,
+or select a node and execute a command from <b>Analyze</b> or diagram node context menu
+</div>
+
+<div class="q">Q. <a name="analysis">What analysis does the plugin provide?</a></div>
+<div>A.  <ul>
+        <li>Method analysis: call chains to the method and method structure (all call chains from the method within class)</li>
+        <li>Unit analysis: all methods in selected unit (Java class, package, module or project) and all calls between them</li>
+    </ul>
+</div>
+
+<div class="q">Q. <a name="method_analysis">How to perform the method analysis?</a></div>
+<div>A. Select a Java method in the editor and call from <b>Analyze</b> menu:
+    <ul>
+        <li>Method structure (all method call chains from it within class)</li>
+        <li>Method call chains to this... (all method call chains to this method within current class, package, module or project)</li>
+        <li>Method call chains to this from... (all method call chains to this method from selected class, package or module)</li>
+    </ul>
+</div>
+
+<div class="q">Q. <a name="unit_analysis">How to perform the unit analysis?</a></div>
+<div>A. Select class, package or module in the Project view or Java class in the editor,<br> 
+and call "Methods and calls in..." from <b>Analyze</b> menu.
+</div>
+
+<div class="q">Q. <a name="multitab">What about multiple tabs support?</a></div>
+<div>If execute <b>Analyze</b> menu command for method selected in the editor or class, package, module from the Project view then
+diagram with analysis results is opened in a new tab.<br>
+Commands executed for diagram nodes add more nodes to the current diagram.<br>
+You can close current tab using the Close tab toolbar button.
+</div>
+
+<div class="q">Q. <a name="click">What nodes are added when double-click on a diagram node?</a></div>
+<div>It depends on the <b>Show on doubleclick</b> combobox (diagram toolbar) value:
+    <ul>
+        <li>"calls": calls from the method</li>
+        <li>"usages": usages of the method</li>
+    </ul>
+The plugin starts with the "calls" combobox value so to add method usages by double-click 
+you should choose "usages" in the combobox before clicking on nodes.<br>
+You can switch between "calls" and "usages" when you need.
+</div>
+
+<div class="q">Q. <a name="method_icon">What does the method node icon indicate?</a></div>
+<div>A. The question icon in method node indicates that <b>double-click</b> on the node will add more nodes to the diagram.<br>
+The method icon in method node indicates that <b>double-click</b> won't add new nodes or<br> 
+all calls from the method or its usages (depending on the <b>Show on doubleclick</b> combobox value) are added already to the diagram.
+</div>
+
+<div class="q">Q. <a name="filter">Can I filter some method calls during method analysis?</a></div>
+<div>A. You can setup filters in the CodeExplorer settings.<br> 
+CodeExplorer doesn't analyse method and doesn't show it on the diagram if there is a filter for this method.<br>
+There are several filter types: library (method is outside project sources), method name (by prefix) and 
+scope (method belongs to specified class, package or module).
+</div>
+
+<div class="q">Q. <a name="demo">Are there Flash movies that show how to use the plugin?</a></div>
+<div>A. Yes, there is a <a href="http://handyedit.com/codeexplorer/demo.html">demo</a></div>
+
+<div class="q">Q. <a name="source">How to jump to source of a method shown on diagram?</a></div>
+<div>A. Select a method node and press <b>F4</b>, or execute <b>Jump to source</b> command from the method node context menu.</div>
+
+<div class="q">Q. <a name="file">Can I store analysis results to file and load from it later?</a></div>
+<div>A. Yes. Use diagram Open, Save toolbar buttons.</div>
+
+<div class="q">Q. <a name="advice">Any advice?</a></div>
+<div><ul>
+    <li>Node tooltip contains method signature and body, and useful hint (when you pause a mouse pointer over a method node)</li>
+    <li>Switch to short (camelwords) class names to save diagram space (<b>show class names</b> button in the diagram toolbar)</li>
+    <li>You can hide method body in the node tooltip (<b>show method body in tooltip</b> button in the diagram toolbar)</li>
+</ul>
+</div>
+
+<div class="q">Q. <a name="download">Where to download the plugin?</a></div>
+<div>A. You can download plugin <a href="http://plugins.intellij.net/plugin/?id=3739">here</a>
+</div>
+
+<div class="q">Q. <a name="idea_version">Can I use the plugin with Idea 6 or 7?</a></div>
+<div>A. No. The plugin requires Idea 8. The Idea 8.0 or higher is recommended.</div>
+
+<div class="q">Q. <a name="install">How to install the plugin?</a></div>
+<div>A.<ul>
+<li>Open Settings > Plugins</li>
+<li>Find the CodeExplorer in the available plugins list, right click on it and choose install</li>
+</ul></div>
+</body>
+</html>

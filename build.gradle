@@ -1,0 +1,19 @@
+plugins {
+  id "org.jetbrains.intellij" version "0.3.5"
+}
+
+intellij {
+  pluginName = 'CodeExplorer'
+  version = '2017.2.5'
+  type = 'IU'
+  downloadSources = true
+}
+
+patchPluginXml {
+  sinceBuild 'IU-172'
+  untilBuild ''
+}
+
+repositories {
+  mavenCentral()
+}
